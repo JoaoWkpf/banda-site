@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Banda de Percussão</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Cabeçalho -->
+  <header>
+    <nav>
+      <h1>Banda de Percussão</h1>
+      <ul class="menu">
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#midia">Mídia</a></li>
+        <li><a href="#agenda">Agenda</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Seção Hero -->
+  <section class="hero">
+    <h2>Ritmo que contagia 🎶</h2>
+    <p>Bem-vindos ao site oficial da nossa banda de percussão.</p>
+  </section>
+
+  <!-- Sobre a Banda -->
+  <section id="sobre" class="container">
+    <h2>Sobre a Banda</h2>
+    <p>
+      Nossa banda nasceu com o objetivo de espalhar alegria e energia através da percussão.
+      Tocamos em eventos culturais, festas e apresentações comunitárias.
+    </p>
+    <div class="integrantes">
+      <div class="card">
+        <img src="img/membro1.jpg" alt="Integrante 1">
+        <h3>Integrante 1</h3>
+        <p>Instrumento principal</p>
+      </div>
+      <div class="card">
+        <img src="img/membro2.jpg" alt="Integrante 2">
+        <h3>Integrante 2</h3>
+        <p>Instrumento principal</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mídia -->
+  <section id="midia" class="container">
+    <h2>Mídia</h2>
+    <div class="galeria">
+      <img src="img/show1.jpg" alt="Show 1">
+      <img src="img/show2.jpg" alt="Show 2">
+      <iframe width="300" height="200" src="https://www.youtube.com/embed/VIDE0_ID" title="Vídeo da banda" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </section>
+
+  <!-- Agenda -->
+  <section id="agenda" class="container">
+    <h2>Agenda</h2>
+    <ul>
+      <li><strong>20/09</strong> – Festival de Música, Praça Central</li>
+      <li><strong>10/10</strong> – Evento Cultural, Teatro Municipal</li>
+    </ul>
+  </section>
+
+  <!-- Contato -->
+  <section id="contato" class="container">
+    <h2>Contato</h2>
+    <form id="form-contato">
+      <input type="text" placeholder="Seu nome" required>
+      <input type="email" placeholder="Seu email" required>
+      <textarea placeholder="Sua mensagem" required></textarea>
+      <button type="submit">Enviar</button>
+    </form>
+  </section>
+
+  <!-- Rodapé -->
+  <footer>
+    <p>&copy; 2025 Banda de Percussão | Todos os direitos reservados.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
