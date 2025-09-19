@@ -33,17 +33,19 @@
   <section id="galeria">
     <h2>Galeria</h2>
     <div class="galeria-container">
-      <img src="img/foto1.jpg" alt="Apresentação da banda" onclick="openLightbox(this)">
-      <img src="img/foto2.jpg" alt="Evento especial" onclick="openLightbox(this)">
-      <img src="img/foto3.jpg" alt="Integrantes em ensaio" onclick="openLightbox(this)">
-      <!-- Adicione mais imagens aqui -->
+      <img src="img/foto1.jpg" alt="Apresentação da banda" onclick="openLightbox(0)">
+      <img src="img/foto2.jpg" alt="Evento especial" onclick="openLightbox(1)">
+      <img src="img/foto3.jpg" alt="Integrantes em ensaio" onclick="openLightbox(2)">
+      <!-- Adicione mais imagens aqui, atualizando os índices -->
     </div>
   </section>
 
   <!-- Lightbox -->
-  <div id="lightbox" class="lightbox" onclick="closeLightbox()">
-    <span class="close">&times;</span>
+  <div id="lightbox" class="lightbox">
+    <span class="close" onclick="closeLightbox()">&times;</span>
+    <span class="prev" onclick="changeSlide(-1)">&#10094;</span>
     <img id="lightbox-img" class="lightbox-content">
+    <span class="next" onclick="changeSlide(1)">&#10095;</span>
   </div>
 
   <section id="contato">
