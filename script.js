@@ -1,59 +1,31 @@
-let currentIndex = 0;
+// ScrollReveal
+ScrollReveal().reveal('.hero h1, .hero p, .hero .btn', { delay: 200, distance: '50px', origin: 'bottom' });
+ScrollReveal().reveal('.sobre, .galeria, .contato', { delay: 200, distance: '50px', origin: 'bottom' });
+
+// Lightbox da galeria
+let currentSlide = 0;
 const images = document.querySelectorAll(".galeria-container img");
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightbox-img");
 
 function openLightbox(index) {
-  currentIndex = index;
-  document.getElementById("lightbox").style.display = "block";
-  document.getElementById("lightbox-img").src = images[currentIndex].src;
+  currentSlide = index;
+  lightbox.style.display = "flex";
+  lightboxImg.src = images[currentSlide].src;
 }
 
 function closeLightbox() {
-  document.getElementById("lightbox").style.display = "none";
+  lightbox.style.display = "none";
 }
 
-function changeSlide(direction) {
-  currentIndex += direction;
-  if (currentIndex < 0) currentIndex = images.length - 1;
-  if (currentIndex >= images.length) currentIndex = 0;
-  document.getElementById("lightbox-img").src = images[currentIndex].src;
+function changeSlide(step) {
+  currentSlide = (currentSlide + step + images.length) % images.length;
+  lightboxImg.src = images[currentSlide].src;
 }
 
-// Atalhos do teclado
-document.addEventListener("keydown", function(event) {
-  const lightbox = document.getElementById("lightbox");
-  if (lightbox.style.display === "block") {
-    if (event.key === "Escape") {
-      closeLightbox();
-    } else if (event.key === "ArrowLeft") {
-      changeSlide(-1);
-    } else if (event.key === "ArrowRight") {
-      changeSlide(1);
-    }
+// Fechar clicando fora da imagem
+function outsideClick(event) {
+  if (event.target === lightbox) {
+    closeLightbox();
   }
-});
-
-// Animações com ScrollReveal
-ScrollReveal().reveal('.hero-text', {
-  duration: 2000,
-  origin: 'top',
-  distance: '50px'
-});
-
-ScrollReveal().reveal('.sobre', {
-  duration: 2000,
-  origin: 'left',
-  distance: '60px'
-});
-
-ScrollReveal().reveal('.galeria-item', {
-  duration: 2000,
-  origin: 'bottom',
-  distance: '40px',
-  interval: 200
-});
-
-ScrollReveal().reveal('.contato', {
-  duration: 2000,
-  origin: 'right',
-  distance: '60px'
-});
+}
