@@ -31,3 +31,29 @@ document.addEventListener("keydown", function(event) {
     }
   }
 });
+
+// Animações com ScrollReveal
+ScrollReveal().reveal('.hero-text', {
+  duration: 2000,
+  origin: 'top',
+  distance: '50px'
+});
+
+ScrollReveal().reveal('.sobre', {
+  duration: 2000,
+  origin: 'left',
+  distance: '60px'
+});
+
+ScrollReveal().reveal('.galeria-item', {
+  duration: 2000,
+  origin: 'bottom',
+  distance: '40px',
+  interval: 200
+});
+
+ScrollReveal().reveal('.contato', {
+  duration: 2000,
+  origin: 'right',
+  distance: '60px'
+});
