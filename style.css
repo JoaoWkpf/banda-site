@@ -54,7 +54,8 @@ nav ul li a:hover {
 /* HERO */
 .hero {
   height: 70vh;
-  background: url("img/fundo.jpg") no-repeat center center/cover;
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+              url("img/fundo.jpg") no-repeat center center/cover;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -155,4 +156,5 @@ footer {
     font-size: 2rem;
   }
 }
+
 
