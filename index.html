@@ -3,12 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Banda de Percussão</title>
+  <title>Sua Banda</title>
   <link rel="stylesheet" href="style.css">
+  <!-- ScrollReveal -->
+  <script src="https://unpkg.com/scrollreveal"></script>
 </head>
 <body>
+  <!-- HEADER -->
   <header>
-    <h1>Banda de Percussão</h1>
+    <div class="logo">Sua Banda</div>
     <nav>
       <ul>
         <li><a href="#home">Início</a></li>
@@ -19,51 +22,48 @@
     </nav>
   </header>
 
-  <section id="home">
-    <h2>Bem-vindos</h2>
-    <p>Site oficial da Famas onde a Musica Transforma Vidas.</p>
-  </section>
-
-  <section id="sobre">
-    <h2>Sobre a Banda</h2>
-    <p>A banda de percussão foi criada para unir ritmos, cultura e paixão pela música. Estamos sempre participando de eventos e apresentações.</p>
-  </section>
-
-  <!-- Galeria -->
-  <section id="galeria">
-    <h2>Galeria</h2>
-    <div class="galeria-container">
-      <img src="img/foto1.jpg" alt="foto 1" onclick="openLightbox(0)">
-      <img src="img/foto2.jpg" alt="foto 2" onclick="openLightbox(1)">
-      <img src="img/foto3.jpg" alt="foto 3" onclick="openLightbox(2)">
-      <img src="img/foto4.jpg" alt="foto 4" onclick="openLightbox(3)">
-      <img src="img/foto5.jpg" alt="foto 5" onclick="openLightbox(4)">
-      <img src="img/foto6.jpg" alt="foto 6" onclick="openLightbox(5)">
-      <!-- Adicione mais imagens aqui, atualizando os índices -->
+  <!-- HERO -->
+  <section id="home" class="hero">
+    <div class="hero-text">
+      <h1>Bem-vindo à <span>Sua Banda</span></h1>
+      <p>Energia, Ritmo e Paixão pela Música</p>
     </div>
   </section>
 
-  <!-- Lightbox -->
-  <div id="lightbox" class="lightbox">
-    <span class="close" onclick="closeLightbox()">&times;</span>
-    <span class="prev" onclick="changeSlide(-1)">&#10094;</span>
-    <img id="lightbox-img" class="lightbox-content">
-    <span class="next" onclick="changeSlide(1)">&#10095;</span>
-  </div>
-
-  <section id="contato">
-    <h2>Contato</h2>
-    <p>Entre em contato conosco para eventos, parcerias ou mais informações:</p>
-    <p>Email: <a href="mailto:contato@bandapercussao.com">contato@bandapercussao.com</a></p>
+  <!-- SOBRE -->
+  <section id="sobre" class="sobre">
+    <h2>Sobre Nós</h2>
+    <p>
+      Nossa banda é movida pela energia da percussão e pelo poder da música em conectar pessoas.
+      Atuamos em eventos, desfiles e apresentações únicas que levam emoção ao público.
+    </p>
   </section>
 
+  <!-- GALERIA -->
+  <section id="galeria" class="galeria">
+    <h2>Galeria</h2>
+    <div class="galeria-container">
+      <div class="galeria-item"><img src="img/foto1.jpg" alt="Apresentação 1"></div>
+      <div class="galeria-item"><img src="img/foto2.jpg" alt="Apresentação 2"></div>
+      <div class="galeria-item"><img src="img/foto3.jpg" alt="Apresentação 3"></div>
+      <div class="galeria-item"><img src="img/foto5.jpg" alt="Apresentação 5"></div>
+      <div class="galeria-item"><img src="img/foto6.jpg" alt="Apresentação 6"></div>
+      <div class="galeria-item"><img src="img/foto7.jpg" alt="Apresentação 7"></div>
+    </div>
+  </section>
+
+  <!-- CONTATO -->
+  <section id="contato" class="contato">
+    <h2>Contato</h2>
+    <p>Quer contratar nossa banda para um evento?</p>
+    <a href="mailto:contato@sua-banda.com" class="btn">Fale Conosco</a>
+  </section>
+
+  <!-- FOOTER -->
   <footer>
-    <p>&copy; 2025 Banda de Percussão - Todos os direitos reservados.</p>
+    <p>© 2025 Sua Banda - Todos os direitos reservados</p>
   </footer>
 
   <script src="script.js"></script>
 </body>
 </html>
-
-
-
