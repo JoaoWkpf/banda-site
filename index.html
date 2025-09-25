@@ -41,15 +41,21 @@
 
   <!-- GALERIA -->
   <section id="galeria" class="galeria">
-    <h2>Galeria</h2>
-    <div class="galeria-container">
-      <div class="galeria-item"><img src="img/foto1.jpg" alt="Apresentação 1"></div>
-      <div class="galeria-item"><img src="img/foto2.jpg" alt="Apresentação 2"></div>
-      <div class="galeria-item"><img src="img/foto3.jpg" alt="Apresentação 3"></div>
-      <div class="galeria-item"><img src="img/foto5.jpg" alt="Apresentação 5"></div>
-      <div class="galeria-item"><img src="img/foto6.jpg" alt="Apresentação 6"></div>
-      <div class="galeria-item"><img src="img/foto7.jpg" alt="Apresentação 7"></div>
-    </div>
+  <h2>Galeria</h2>
+  <div class="galeria-container">
+    <img src="img/foto1.jpg" alt="Banda ao vivo" onclick="openLightbox(0)">
+    <img src="img/foto2.jpg" alt="Evento especial" onclick="openLightbox(1)">
+    <img src="img/foto3.jpg" alt="Ensaio" onclick="openLightbox(2)">
+  </div>
+</section>
+
+<!-- Lightbox -->
+<div id="lightbox" class="lightbox">
+  <span class="close" onclick="closeLightbox()">&times;</span>
+  <img id="lightbox-img" class="lightbox-content" src="">
+  <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+  <a class="next" onclick="changeSlide(1)">&#10095;</a>
+</div>
   </section>
 
   <!-- CONTATO -->
@@ -67,4 +73,5 @@
   <script src="script.js"></script>
 </body>
 </html>
+
 
