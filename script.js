@@ -1,31 +1,31 @@
-// ScrollReveal
-ScrollReveal().reveal('.hero h1, .hero p, .hero .btn', { delay: 200, distance: '50px', origin: 'bottom' });
-ScrollReveal().reveal('.sobre, .galeria, .contato', { delay: 200, distance: '50px', origin: 'bottom' });
+// Scroll Reveal
+ScrollReveal().reveal('section', {
+  duration: 1000,
+  origin: 'bottom',
+  distance: '50px',
+  reset: true
+});
 
-// Lightbox da galeria
-let currentSlide = 0;
-const images = document.querySelectorAll(".galeria-container img");
-const lightbox = document.getElementById("lightbox");
-const lightboxImg = document.getElementById("lightbox-img");
+// Modal da Galeria
+const modal = document.getElementById("modal");
+const modalImg = document.getElementById("modal-img");
+const galleryItems = document.querySelectorAll(".gallery-item");
+const closeBtn = document.querySelector(".close");
 
-function openLightbox(index) {
-  currentSlide = index;
-  lightbox.style.display = "flex";
-  lightboxImg.src = images[currentSlide].src;
-}
+galleryItems.forEach(img => {
+  img.addEventListener("click", () => {
+    modal.style.display = "block";
+    modalImg.src = img.src;
+  });
+});
 
-function closeLightbox() {
-  lightbox.style.display = "none";
-}
+closeBtn.addEventListener("click", () => {
+  modal.style.display = "none";
+});
 
-function changeSlide(step) {
-  currentSlide = (currentSlide + step + images.length) % images.length;
-  lightboxImg.src = images[currentSlide].src;
-}
-
-// Fechar clicando fora da imagem
-function outsideClick(event) {
-  if (event.target === lightbox) {
-    closeLightbox();
+// Fecha modal ao clicar fora da imagem
+modal.addEventListener("click", (e) => {
+  if (e.target === modal) {
+    modal.style.display = "none";
   }
-}
+});
