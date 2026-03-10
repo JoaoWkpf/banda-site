@@ -45,18 +45,49 @@ header {
 .nav-links a:hover {
   color: #ffa500;
 }
+
+/* Hamburger */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+.hamburger span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background: white;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+.hamburger.active span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
 /* Hero */
 .hero {
   height: 70vh;
   background: linear-gradient(rgba(0, 31, 84, 0.6), rgba(0, 31, 84, 0.6)),
               url("img/fundo.jpg") no-repeat center center/cover;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
   color: white;
   padding: 20px;
   margin-top: 60px;
+  position: relative;
 }
 .hero h1 {
   font-size: 2.5rem;
@@ -76,6 +107,41 @@ header {
 .btn:hover {
   background: #cc8400;
 }
+
+/* Seta animada no Hero */
+.scroll-down {
+  position: absolute;
+  bottom: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+}
+.scroll-down span {
+  display: block;
+  width: 14px;
+  height: 14px;
+  border-right: 3px solid white;
+  border-bottom: 3px solid white;
+  transform: rotate(45deg);
+  animation: scrollBounce 1.2s infinite;
+  opacity: 0;
+}
+.scroll-down span:nth-child(1) {
+  animation-delay: 0s;
+}
+.scroll-down span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+@keyframes scrollBounce {
+  0%   { opacity: 0; transform: rotate(45deg) translate(-4px, -4px); }
+  50%  { opacity: 1; }
+  100% { opacity: 0; transform: rotate(45deg) translate(4px, 4px); }
+}
+
 /* Seções */
 section {
   padding: 50px 20px;
@@ -92,6 +158,7 @@ section {
   display: inline-block;
   margin-top: 25px;
 }
+
 /* Galeria */
 .galeria-container {
   display: flex;
@@ -127,6 +194,34 @@ section {
 .galeria-container img:hover {
   transform: scale(1.05);
 }
+
+/* Vídeo */
+.video-section {
+  background: #f0f4ff;
+}
+.video-section p {
+  color: #555;
+  margin-bottom: 25px;
+}
+.video-wrapper {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
+  max-width: 800px;
+  margin: 0 auto;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0, 31, 84, 0.2);
+}
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+}
+
 /* Lightbox */
 .lightbox {
   display: none;
@@ -166,6 +261,7 @@ section {
 }
 .lightbox .prev { left: 20px; }
 .lightbox .next { right: 20px; }
+
 /* Rodapé */
 footer {
   background: #001f54;
@@ -173,18 +269,34 @@ footer {
   text-align: center;
   padding: 15px 0;
 }
+
 /* Responsividade */
 @media (max-width: 768px) {
   .hero h1 {
     font-size: 2rem;
   }
+  .hamburger {
+    display: flex;
+  }
   .nav-links {
+    display: none;
     flex-direction: column;
     background: #001f54;
     position: absolute;
     top: 60px;
     right: 0;
     width: 200px;
-    display: none;
+    padding: 10px 0;
+    box-shadow: -2px 4px 10px rgba(0,0,0,0.3);
+  }
+  .nav-links.open {
+    display: flex;
+  }
+  .nav-links li {
+    margin: 0;
+    padding: 10px 20px;
+  }
+  .nav-links li:hover {
+    background: rgba(255,165,0,0.15);
   }
 }
