@@ -12,7 +12,7 @@ body {
 }
 /* Navbar */
 header {
-  background: #001f54; /* azul royal */
+  background: #001f54;
   padding: 15px 20px;
   position: fixed;
   width: 100%;
@@ -25,7 +25,7 @@ header {
   align-items: center;
 }
 .logo {
-  color: #ffa500; /* laranja */
+  color: #ffa500;
   font-size: 1.5rem;
   font-weight: bold;
 }
@@ -56,7 +56,7 @@ header {
   text-align: center;
   color: white;
   padding: 20px;
-  margin-top: 60px; /* compensar navbar fixa */
+  margin-top: 60px;
 }
 .hero h1 {
   font-size: 2.5rem;
@@ -94,18 +94,34 @@ section {
 }
 /* Galeria */
 .galeria-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  display: flex;
+  flex-direction: row;
   gap: 15px;
   margin-top: 20px;
+  overflow-x: auto;
+  padding-bottom: 12px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+.galeria-container::-webkit-scrollbar {
+  height: 6px;
+}
+.galeria-container::-webkit-scrollbar-track {
+  background: #e0e0e0;
+  border-radius: 10px;
+}
+.galeria-container::-webkit-scrollbar-thumb {
+  background: #001f54;
+  border-radius: 10px;
 }
 .galeria-container img {
-  width: 100%;
-  height: 220px;           /* altura fixa igual para todas */
-  object-fit: cover;       /* preenche sem distorcer, recortando o excesso */
-  object-position: center; /* centraliza o foco da imagem */
+  flex: 0 0 280px;
+  height: 220px;
+  object-fit: cover;
+  object-position: center;
   border-radius: 10px;
   cursor: pointer;
+  scroll-snap-align: start;
   transition: transform 0.3s ease;
 }
 .galeria-container img:hover {
@@ -120,7 +136,7 @@ section {
   top: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 31, 84, 0.9); /* azul royal translúcido */
+  background: rgba(0, 31, 84, 0.9);
   justify-content: center;
   align-items: center;
 }
