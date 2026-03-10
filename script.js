@@ -29,3 +29,33 @@ function outsideClick(event) {
     closeLightbox();
   }
 }
+
+// Navegação pelo teclado (setas e ESC)
+document.addEventListener("keydown", function (e) {
+  if (lightbox.style.display !== "flex") return;
+
+  if (e.key === "ArrowRight") changeSlide(1);
+  if (e.key === "ArrowLeft") changeSlide(-1);
+  if (e.key === "Escape") closeLightbox();
+});
+
+// Swipe no celular
+let touchStartX = 0;
+let touchEndX = 0;
+
+lightbox.addEventListener("touchstart", function (e) {
+  touchStartX = e.changedTouches[0].screenX;
+});
+
+lightbox.addEventListener("touchend", function (e) {
+  touchEndX = e.changedTouches[0].screenX;
+  const diff = touchStartX - touchEndX;
+
+  if (Math.abs(diff) > 50) { // mínimo 50px para considerar swipe
+    if (diff > 0) {
+      changeSlide(1);  // swipe para esquerda → próxima foto
+    } else {
+      changeSlide(-1); // swipe para direita → foto anterior
+    }
+  }
+});
