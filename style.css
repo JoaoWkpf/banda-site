@@ -88,6 +88,10 @@ section {
   background: #001f54;
   color: white;
 }
+.contato .btn {
+  display: inline-block;
+  margin-top: 25px;
+}
 /* Galeria */
 .galeria-container {
   display: grid;
