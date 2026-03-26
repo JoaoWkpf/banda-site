@@ -22,6 +22,47 @@ const images = document.querySelectorAll(".galeria-container img");
 const lightbox = document.getElementById("lightbox");
 const lightboxImg = document.getElementById("lightbox-img");
 
+// Detecta se foi clique ou scroll para não abrir lightbox ao arrastar
+images.forEach((img, index) => {
+  let startX = 0;
+  let isDragging = false;
+
+  img.addEventListener("mousedown", (e) => {
+    startX = e.clientX;
+    isDragging = false;
+  });
+
+  img.addEventListener("mousemove", (e) => {
+    if (Math.abs(e.clientX - startX) > 5) {
+      isDragging = true;
+    }
+  });
+
+  img.addEventListener("mouseup", () => {
+    if (!isDragging) {
+      openLightbox(index);
+    }
+  });
+
+  // Suporte a toque (touch)
+  img.addEventListener("touchstart", (e) => {
+    startX = e.changedTouches[0].clientX;
+    isDragging = false;
+  }, { passive: true });
+
+  img.addEventListener("touchmove", (e) => {
+    if (Math.abs(e.changedTouches[0].clientX - startX) > 10) {
+      isDragging = true;
+    }
+  }, { passive: true });
+
+  img.addEventListener("touchend", () => {
+    if (!isDragging) {
+      openLightbox(index);
+    }
+  });
+});
+
 function openLightbox(index) {
   currentSlide = index;
   lightbox.style.display = "flex";
@@ -52,13 +93,13 @@ document.addEventListener("keydown", function (e) {
   if (e.key === "Escape") closeLightbox();
 });
 
-// Swipe no celular
+// Swipe no lightbox
 let touchStartX = 0;
 let touchEndX = 0;
 
 lightbox.addEventListener("touchstart", function (e) {
   touchStartX = e.changedTouches[0].screenX;
-});
+}, { passive: true });
 
 lightbox.addEventListener("touchend", function (e) {
   touchEndX = e.changedTouches[0].screenX;
